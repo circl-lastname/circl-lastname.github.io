@@ -11,15 +11,20 @@
     
     <h1>MBLF and Brainfuck stuff</h1>
     
-    <p>In order to simplify Brainfuck development, I made a language called <a href="https://github.com/MBLF-Project/mblf-lang" target="_blank">MBLF</a>. Right now it's sadly on hiatus.</p>
-    <p>If you would like to learn how to code with it, visit the <a href="https://github.com/MBLF-Project/mblf-lang/wiki" target="_blank">wiki</a>. Please don't use the master branch, rather download it using the instrctions provided.</p>
-    <p>Here is a list of things I would like to some day improve about it:</p>
-    <ul>
-      <li>Fix <code>#include</code>. Currently, referencing a variable in an <code>if</code> statement that's defined outside of the current file will cause an error.</li>
-      <li>Generate more efficient Brainfuck code, when adding or subtracting.</li>
-      <li>Stop converting between variable names and addresses in the code so much.</li>
-      <li>Rewrite in anything but JavaScript</li>
-    </ul>
-    <p>If you have any problems with the language feel free to contact me.</p>
+    <p>In order to simplify Brainfuck development, I made a language called MBLF. It's assembly-close-enough and has 14 instructions for common tasks in Brainfuck programs. It uses a unique "pointing" system, where instructions act upon the currently pointed variable and an additional variable or value provided in an argument, allowing you to chain actions like so:</p>
+    <p>
+      <code>
+      var a ;; create variable 'a'<br>
+      <br>
+      point a ;; start acting upon the variable 'a'<br>
+      getchr ;; take one character from the user<br>
+      print ;; print the same character<br>
+      sub 1 ;; print the previous character in the alphabet/ascii<br>
+      print
+      </code>
+    </p>
+    <p>Its original compiler did things pretty badly and was written in JavaScript, it had a few extra instructions like <code>if</code> and <code>while</code>, but I unfortunately removed it.</p>
+    <p>My friend <a href="https://raymon.dev/" target="_blank">Raymon</a> wrote a new version of the compiler in Rust using Pest grammar. You can find it on <a href="https://crates.io/crates/mblf" target="_blank">crates.io</a>.</p>
+    <p>I have created a <a href="reference.txt" target="_blank">very rough cheat sheet for the language</a>. If you have any problems, feel free to contact me.</p>
   </body>
 </html>
