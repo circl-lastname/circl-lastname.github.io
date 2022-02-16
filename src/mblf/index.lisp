@@ -21,6 +21,12 @@ print")
     
     (p "Its original compiler did things pretty badly and was written in JavaScript, it had a few extra instructions like " (code "if") " and " (code "while") ", but I unfortunately removed it.")
     
-    (p "My friend " (a :href "https://raymon.dev/" :target '_blank "Raymon") " wrote a new version of the compiler in Rust using Pest grammar. You can find it on " (a :href "https://crates.io/crates/mblf" :target '_blank "crates.io") ".")
+    (p "My friend "
+      (a :href "https://raymon.dev/" :target '_blank "Raymon")
+    " wrote a new version of the compiler in Rust using Pest grammar. You can find it on "
+      (a :href "https://crates.io/crates/mblf" :target '_blank "crates.io")
+    ".")
     
-    (p "I have created a " (a :href "reference.txt" :target '_blank "very rough cheat sheet for the language") ". If you have any problems, feel free to contact me.")))
+    (p "I have created a "
+      (a :href "reference.txt" :target '_blank "very rough cheat sheet for the language")
+    ". If you have any problems, feel free to contact me.")))
