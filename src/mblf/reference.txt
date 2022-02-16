@@ -1,0 +1,53 @@
+var
+create a variable
+takes in variable name
+
+delvar
+remove variable, it just removes it from the compiler, not cleared in actual code
+takes in variable name
+
+point
+move pointer to a variable
+takes in variable name
+
+pointm
+move pointer to a marker. this will use <+[-<+]- to move the pointer until it encounters 255, used after some brackets when the pointer position is unknown
+takes in variable of the marker its supposed to go to
+
+add
+add to pointed variable, using that many pluses
+takes in amount to add
+
+addb
+add to pointed variable, using a second internal multiplier variable
+takes in amount to add
+
+addv
+move (destroy) value of pointed variable to variable in operand
+takes in the destination variable
+
+sub
+see add
+
+subb
+see addb
+
+subv
+subtract (destroy) pointed variable from variable in operand
+takes in the destination variable
+
+copy
+copy value of pointed variable to variable in operand, using a second internal helper variable
+takes in the destination variable
+
+setz
+set pointed variable to zero [-]
+doesnt take in anything
+
+getchr
+get char from user, and place into poited variable
+doesnt take in anything
+
+print
+print pointed variable
+doesnt take in anything
