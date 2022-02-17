@@ -1,0 +1,17 @@
+body {
+  font-family: sans-serif;
+  max-width: 50em;
+  padding: 1em;
+  margin: auto;
+}
+
+pre {
+  display: inline-block;
+  background-color: lightgray;
+  padding: 5px;
+}
+
+code {
+  background-color: lightgray;
+  padding: 2px;
+}
