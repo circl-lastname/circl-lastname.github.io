@@ -6,12 +6,14 @@ body {
 }
 
 pre {
-  display: inline-block;
   background-color: lightgray;
+  width: fit-content;
   padding: 5px;
+  border-radius: 5px;
 }
 
 code {
   background-color: lightgray;
   padding: 2px;
+  border-radius: 5px;
 }
