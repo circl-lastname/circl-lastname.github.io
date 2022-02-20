@@ -1,19 +1,30 @@
 body {
+  background-color: #202020;
+  color: white;
   font-family: sans-serif;
   max-width: 50em;
   padding: 1em;
   margin: auto;
 }
 
+a {
+  color: lightblue;
+}
+
+a:active {
+  color: orangered;
+}
+
 pre {
-  background-color: lightgray;
+  background-color: #404040;
   width: fit-content;
   padding: 5px;
   border-radius: 5px;
 }
 
 code {
-  background-color: lightgray;
+  background-color: #404040;
   padding: 2px;
   border-radius: 5px;
 }
+
