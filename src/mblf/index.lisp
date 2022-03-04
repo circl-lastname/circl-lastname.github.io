@@ -16,14 +16,13 @@
        "additional variable or value provided in an argument, allowing you to "
        "chain actions like so:")
     
-    (pre
-"var a ;; create variable 'a'
-
-point a ;; start acting upon the variable 'a'
-getchr ;; take one character from the user
-print ;; print the same character
-sub 1 ;; print the previous character in the alphabet/ascii
-print")
+    (pre "var a ;; create variable 'a'\n"
+         "\n"
+         "point a ;; start acting upon the variable 'a'\n"
+         "getchr ;; take one character from the user\n"
+         "print ;; print the same character\n"
+         "sub 1 ;; print the previous character in the alphabet/ascii\n"
+         "print")
     
     (p "Its original compiler did things pretty badly and was written in "
        "JavaScript, it had a few extra instructions like " (code "if") " and "
