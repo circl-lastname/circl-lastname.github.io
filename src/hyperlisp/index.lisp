@@ -23,6 +23,8 @@
          "GitHub repo")
        ". If you don't want to bother compiling it, you can try out the "
          (a :href "/HyperLisp-demo" :target '_blank "online demo")
+       " powered by "
+         (a :href "https://emscripten.org/" :target '_blank "Emscripten")
        ".")
     
     (p (a :href "https://github.com/circl-lastname/HyperLisp" :target '_blank (img :src "https://img.shields.io/badge/built%20with-HyperLisp!-blue")))))
