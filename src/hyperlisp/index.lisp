@@ -18,7 +18,11 @@
     (p "HyperLisp!™ is a preprocessor provides a 1:1 mapping of HTML to Lisp "
        "syntax, in fact I am using it right now to write this page.")
     
-    (p "You can find the source as well as a guide on GitHub by clicking the "
-       "badge below.")
+    (p "You can find the source as well as a quick guide on the "
+         (a :href "https://github.com/circl-lastname/HyperLisp" :target '_blank
+         "GitHub repo")
+       ". If you don't want to bother compiling it, you can try out the "
+         (a :href "/HyperLisp-demo" :target '_blank "online demo")
+       ".")
     
     (p (a :href "https://github.com/circl-lastname/HyperLisp" :target '_blank (img :src "https://img.shields.io/badge/built%20with-HyperLisp!-blue")))))
