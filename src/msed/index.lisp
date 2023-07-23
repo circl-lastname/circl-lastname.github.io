@@ -27,7 +27,11 @@
        "the original IBM PC. The saved files can be simply " (code "type") "d "
        "in DOS and will appear exactly as in the editor. These files can of "
        "course be loaded, however they cannot have been created by other ASCII "
-       "editors, as a naive aproach is used to decode the ANSI escape codes.")
+       "editors, as a "
+         (a :href
+         "https://github.com/circl-lastname/msed/blob/master/src/editor.c#L158" 
+         :target '_blank "naive aproach")
+       " is used to decode the ANSI escape codes.")
     
     (p "As always, if you'd like to try it, visit the "
          (a :href "https://github.com/libsdl-org/SDL" :target '_blank 
