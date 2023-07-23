@@ -13,6 +13,7 @@
     (h2 "Software projects")
     
     (ul
+      (li (a :href "msed"      "MSED and SDL stuff"))
       (li (a :href "hyperlisp" "Hyperlisp!"))
       (li (a :href "6502"      "6502 stuff"))
       (li (a :href "mblf"      "MBLF and Brainfuck stuff")))
