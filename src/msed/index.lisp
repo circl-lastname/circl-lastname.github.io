@@ -34,6 +34,6 @@
        " is used to decode the ANSI escape codes.")
     
     (p "As always, if you'd like to try it, visit the "
-         (a :href "https://github.com/libsdl-org/SDL" :target '_blank 
+         (a :href "https://github.com/circl-lastname/msed" :target '_blank 
          "respository")
        " on GitHub.")))
