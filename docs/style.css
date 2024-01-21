@@ -22,6 +22,13 @@ body {
   color: white;
 }
 
+#content {
+  flex: 0 1 48em;
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: white;
+}
+
 a {
   color: #0040ff;
 }
@@ -30,13 +37,6 @@ a {
   color: #0080ff;
 }
 
-a:active {
+a:active, #sidebar a:active {
   color: #ff8000;
-}
-
-#content {
-  flex: 0 1 48em;
-  padding-left: 8px;
-  padding-right: 8px;
-  background-color: white;
 }
