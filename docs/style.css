@@ -1,32 +1,38 @@
+html {
+  min-height: 100%;
+}
+
 body {
-  background-color: #202020;
+  background-image: url("/tatra.png");
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+}
+
+#sidebar {
+  flex: 0 0 12em;
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: #000040;
   color: white;
-  font-family: sans-serif;
-  max-width: 50em;
-  padding: 8px;
-  margin: auto;
 }
 
-a {
-  color: lightblue;
+#sidebar a {
+  color: #0080ff;
 }
 
-a:active {
-  color: orangered;
+#sidebar a:active {
+  color: #ff8000;
 }
 
-pre {
-  display: inline-block;
-  background-color: #404040;
-  width: fit-content;
-  padding: 5px;
-  margin: 0;
-  border-radius: 5px;
+#content {
+  flex: 0 1 48em;
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: white;
 }
-
-code {
-  background-color: #404040;
-  padding: 2px;
-  border-radius: 5px;
-}
-
