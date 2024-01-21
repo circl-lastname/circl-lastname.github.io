@@ -22,11 +22,11 @@ body {
   color: white;
 }
 
-#sidebar a {
+a {
   color: #0080ff;
 }
 
-#sidebar a:active {
+a:active {
   color: #ff8000;
 }
 
