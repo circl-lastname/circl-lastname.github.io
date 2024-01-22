@@ -40,3 +40,7 @@ a {
 a:active, #sidebar a:active {
   color: #ff8000;
 }
+
+#sidebar hr {
+  color: white;
+}
