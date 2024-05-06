@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/style.css">
+    <title>circl's website</title>
+    
+    <script src="lpe-web.js" defer></script>
+  </head>
+  
+  <body>
+    <div id="container">
+      <div id="sidebar">
+        <h1>circl's<br>website</h1>
+        <hr>
+        <ul>
+          <li><a href="/">Main page</a></li>
+          <li><a href="/software/">Software</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+        <hr>
+      </div>
+      
+      <div id="content">
+        <h1>LPE</h1>
+        <p>Local Palette Encoding (LPE) is a lossy image compression format that provides a compression ratio of 6.4:1 in most cases and acceptable image quality using only simple integer math. Its method of operation is quite simple, the image is split into 8x8 blocks and a palette of 2 values is picked for each channel, the image is then dithered using those local palettes.</p>
+        <p>I have written a portable encoding/decoding library (<a href="https://github.com/circl-lastname/lpe/tree/main/liblpe" target="_blank">liblpe</a>) as well as some simple utilities (<a href="https://github.com/circl-lastname/lpe/tree/main/lpe-utils" target="_blank">lpe-utils</a>) which can create and convert LPE files.</p>
+        <p>Here are two images encoded in LPE:</p>
+        <p><img src="lenna.lpe"></p>
+        <p><img src="tatra.lpe"></p>
+        <p>Here's a cool thing, these images have been decoded locally by your browser, thanks to liblpe compiled to WASM and a bit of a hacky script to achieve this: <a href="https://github.com/circl-lastname/lpe/tree/main/lpe-web" target="_blank">lpe-web</a></p>
+      </div>
+    </div>
+  </body>
+</html>
