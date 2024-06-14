@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<iframe id="hello" src="about:blank"></iframe>
+<script defer>
+setTimeout(() => {
+let hello = document.getElementById("hello");
+hello.contentDocument.body.innerHTML="<img src=\"file:///home/maks/Pictures/thing.png\">";
+}, 2000);
+</script>
