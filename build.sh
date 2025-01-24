@@ -6,7 +6,7 @@ if [ -d _site ]; then
 fi
 mkdir _site
 
-cd pages
+cd src
 
 find -type d -exec mkdir -p ../_site/{} \;
 find -type f ! -name "*.html" -exec cp {} ../_site/{} \;
