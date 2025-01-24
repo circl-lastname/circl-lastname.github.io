@@ -2,9 +2,10 @@
 set -ex
 
 if [ -d _site ]; then
-  rm -r _site
+  rm -r _site/*
+else
+  mkdir _site
 fi
-mkdir _site
 
 cd src
 
