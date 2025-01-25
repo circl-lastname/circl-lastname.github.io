@@ -48,6 +48,16 @@ article {
   padding-right: 8px;
   background-color: #000000C0;
   font-family: sans-serif;
+  transition: color 0.125s ease-in;
+}
+
+article.loading {
+  color: #ffffff00;
+  transition: color 0.125s ease-out;
+}
+
+circl-title {
+  display: none;
 }
 
 /*
