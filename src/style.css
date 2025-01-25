@@ -3,40 +3,74 @@ body {
   background-size: cover;
   background-position: bottom;
   background-attachment: fixed;
+  color: #ffffff;
+  font-size: 16px;
 }
 
-#container {
+main {
   display: flex;
   justify-content: center;
 }
 
-#sidebar {
-  flex: 0 0 12em;
+nav {
+  flex: 0 0 192px;
   padding-left: 8px;
   padding-right: 8px;
-  background-color: #000040;
-  color: white;
+  border-right: 2px solid #ffffff;
+  background-color: #202020;
+  font-family: monospace;
 }
 
-#content {
-  flex: 0 1 48em;
+nav div {
+  position: sticky;
+  top: 16px;
+}
+
+nav header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+nav header img {
+  margin-right: 8px;
+}
+
+nav header p {
+  margin: 0;
+}
+
+article {
+  flex: 0 1 768px;
   padding-left: 8px;
   padding-right: 8px;
-  background-color: white;
+  background-color: #000000C0;
+  font-family: sans-serif;
+}
+
+/*
+https://html.spec.whatwg.org/multipage/rendering.html#sections-and-headings
+Prevent h1 resizing
+*/
+h1 {
+  margin-block: 0.67em;
+  font-size: 2.00em;
+  font-weight: bold;
+}
+
+hr {
+  color: #ffffff;
+  border-style: solid;
 }
 
 a {
-  color: #0040ff;
-}
-
-#sidebar a {
   color: #0080ff;
+  transition: color 0.5s ease-out;
 }
 
-a:active, #sidebar a:active {
-  color: #ff8000;
-}
-
-#sidebar hr {
-  color: white;
+a:hover {
+  color: #ffffff;
+  transition: none;
 }
