@@ -19,7 +19,7 @@ function fetchText(path) {
 
 function postNavigation(elements) {
   scrollTo(0, 0);
-  document.title = `circl - ${document.querySelector("article circl-title").innerText}`;
+  document.title = `circl - ${document.querySelector("#articleContainer circl-title").innerText}`;
   
   for (let element of elements) {
     if (element.origin == location.origin) {
@@ -45,7 +45,7 @@ async function doNavigation() {
   runningNavigation = true;
   
   let navigation;
-  let article = document.querySelector("article");
+  let articleContainer = document.querySelector("#articleContainer");
   
   while (navigation = navigationQueue.shift()) {
     let textPromise = fetchText(navigation.path);
@@ -54,13 +54,13 @@ async function doNavigation() {
       history.pushState({}, "", navigation.path);
     }
     
-    article.classList.add("loading");
+    articleContainer.classList.add("loading");
     await wait(125);
     
-    article.innerHTML = await textPromise;
+    articleContainer.innerHTML = await textPromise;
     postNavigation(document.querySelectorAll("article a"));
     
-    article.classList.remove("loading");
+    articleContainer.classList.remove("loading");
     await wait(125);
   }
   

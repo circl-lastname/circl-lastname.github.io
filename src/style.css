@@ -46,14 +46,17 @@ article {
   flex: 0 1 768px;
   padding-left: 8px;
   padding-right: 8px;
-  background-color: #000000C0;
+  background-color: #000000c0;
   font-family: sans-serif;
-  transition: color 0.125s ease-in;
 }
 
-article.loading {
-  color: #ffffff00;
-  transition: color 0.125s ease-out;
+#articleContainer {
+  transition: opacity 0.125s ease-in;
+}
+
+#articleContainer.loading {
+  opacity: 0;
+  transition: opacity 0.125s ease-out;
 }
 
 circl-title {
