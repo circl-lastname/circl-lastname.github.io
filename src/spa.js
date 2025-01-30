@@ -22,7 +22,7 @@ function postNavigation(elements) {
   document.title = `circl - ${document.querySelector("#articleContainer circl-title").innerText}`;
   
   for (let element of elements) {
-    if (element.origin == location.origin) {
+    if (!element.target && element.origin == location.origin) {
       element.addEventListener("click", (e) => {
         if (e.button == 0) {
           e.preventDefault();
