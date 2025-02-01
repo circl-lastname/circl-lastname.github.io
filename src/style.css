@@ -13,17 +13,10 @@ main {
 }
 
 nav {
-  flex: 0 0 192px;
   padding-left: 8px;
   padding-right: 8px;
-  border-right: 2px solid #ffffff;
   background-color: #202020;
   font-family: monospace;
-}
-
-nav div {
-  position: sticky;
-  top: 16px;
 }
 
 nav header {
@@ -43,7 +36,6 @@ nav header p {
 }
 
 article {
-  flex: 0 1 768px;
   padding-left: 8px;
   padding-right: 8px;
   background-color: #000000c0;
@@ -57,6 +49,32 @@ article {
 #articleContainer.loading {
   opacity: 0;
   transition: opacity 0.125s ease-out;
+}
+
+@media (max-width: 600px) {
+  main {
+    flex-direction: column;
+  }
+  
+  nav {
+    border-bottom: 2px solid #ffffff;
+  }
+}
+
+@media not (max-width: 600px) {
+  nav {
+    flex: 0 0 192px;
+    border-right: 2px solid #ffffff;
+  }
+  
+  nav div {
+    position: sticky;
+    top: 16px;
+  }
+  
+  article {
+    flex: 0 1 768px;
+  }
 }
 
 circl-title {
