@@ -51,7 +51,7 @@ article {
   transition: opacity 0.125s ease-out;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 600px) or (max-height: 600px) {
   main {
     flex-direction: column;
   }
@@ -61,7 +61,7 @@ article {
   }
 }
 
-@media not (max-width: 600px) {
+@media not ((max-width: 600px) or (max-height: 600px)) {
   nav {
     flex: 0 0 192px;
     border-right: 2px solid #ffffff;
