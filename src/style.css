@@ -1,8 +1,8 @@
 body {
-  background-image: url("/tatra.webp");
-  background-size: cover;
-  background-position: bottom;
   background-attachment: fixed;
+  background-image: url("/tatra.webp");
+  background-position: bottom;
+  background-size: cover;
   color: #ffffff;
   font-size: 16px;
 }
@@ -13,33 +13,33 @@ main {
 }
 
 nav {
-  padding-left: 8px;
-  padding-right: 8px;
   background-color: #202020;
   font-family: monospace;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 nav header {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: 16px;
   margin-bottom: 16px;
+  margin-top: 16px;
 }
 
-nav header img {
+#logoImage {
   margin-right: 8px;
 }
 
-nav header p {
+#logoText {
   margin: 0;
 }
 
 article {
-  padding-left: 8px;
-  padding-right: 8px;
   background-color: #000000c0;
   font-family: sans-serif;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 #articleContainer {
@@ -63,11 +63,11 @@ article {
 
 @media not ((max-width: 600px) or (max-height: 600px)) {
   nav {
-    flex: 0 0 192px;
     border-right: 2px solid #ffffff;
+    flex: 0 0 192px;
   }
   
-  nav div {
+  #navContainer {
     position: sticky;
     top: 16px;
   }
@@ -86,14 +86,14 @@ https://html.spec.whatwg.org/multipage/rendering.html#sections-and-headings
 Prevent h1 resizing
 */
 h1 {
-  margin-block: 0.67em;
   font-size: 2.00em;
   font-weight: bold;
+  margin-block: 0.67em;
 }
 
 hr {
-  color: #ffffff;
   border-style: solid;
+  color: #ffffff;
 }
 
 a {
