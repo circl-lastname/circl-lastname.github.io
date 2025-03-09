@@ -9,12 +9,9 @@ function wait(time) {
   });
 }
 
-function fetchText(path) {
-  return new Promise(async (resolve) => {
-    let request = await fetch(`/content${path}`);
-    let text = await request.text();
-    resolve(text);
-  });
+async function fetchText(path) {
+  let request = await fetch(`/content${path}`);
+  return await request.text();
 }
 
 function postNavigation(elements) {
