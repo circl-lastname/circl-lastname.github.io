@@ -1,71 +1,83 @@
-let runningNavigation = false;
-let navigationQueue = [];
+let navigating = false;
+let navigations = {};
+let transitionEnded = true;
+let transitionEndHandlers = [];
 
-function wait(time) {
+function waitUntilTransitionEnd() {
   return new Promise((resolve) => {
-    setTimeout(() => {
+    if (transitionEnded) {
       resolve();
-    }, time);
+    } else {
+      transitionEndHandlers.push(resolve);
+    }
   });
 }
 
-async function fetchText(path) {
+async function fetchContent(path) {
   let request = await fetch(`/content${path}`);
   return await request.text();
 }
 
 function postNavigation(elements) {
-  scrollTo(0, 0);
   document.title = `circl - ${document.querySelector("#articleContainer circl-title").innerText}`;
+  scrollTo(0, 0);
+  articleContainer.classList.remove("loading");
   
   for (let element of elements) {
     if (!element.target && element.origin == location.origin) {
       element.addEventListener("click", (e) => {
         if (e.button == 0) {
           e.preventDefault();
-          addNavigation(element.pathname, true);
+          navigate(element.pathname, true);
         }
       });
     }
   }
 }
 
-function addNavigation(path, willPushState) {
-  navigationQueue.push({ path: path, willPushState: willPushState });
-  
-  if (!runningNavigation) {
-    doNavigation();
+function navigate(path, willPushState) {
+  if (willPushState) {
+    history.pushState({}, "", path);
   }
-}
-
-async function doNavigation() {
-  runningNavigation = true;
   
-  let navigation;
-  let articleContainer = document.querySelector("#articleContainer");
-  
-  while (navigation = navigationQueue.shift()) {
-    let textPromise = fetchText(navigation.path);
+  if (!navigations[path]) {
+    navigations[path] = true;
     
-    if (navigation.willPushState) {
-      history.pushState({}, "", navigation.path);
+    if (!navigating) {
+      navigating = true;
+      
+      articleContainer.classList.add("loading");
+      
+      transitionEnded = false;
+      setTimeout(() => {
+        transitionEnded = true;
+        for (let handler of transitionEndHandlers) {
+          handler();
+        }
+        transitionEndHandlers = [];
+      }, 125);
     }
     
-    articleContainer.classList.add("loading");
-    await wait(125);
-    
-    articleContainer.innerHTML = await textPromise;
-    postNavigation(document.querySelectorAll("article a"));
-    
-    articleContainer.classList.remove("loading");
-    await wait(125);
+    fetchContent(path).then(async (r) => {
+      await waitUntilTransitionEnd();
+      
+      if (location.pathname == path) {
+        navigating = false;
+        articleContainer.innerHTML = r;
+        postNavigation(document.querySelectorAll("article a"));
+      } else {
+        console.log(`Rejected stale navigation to ${path}`);
+      }
+      
+      delete navigations[path];
+    });
+  } else {
+    console.log(`Rejected duplicate navigation to ${path}`);
   }
-  
-  runningNavigation = false;
 }
 
 addEventListener("popstate", (e) => {
-  addNavigation(location.pathname, false);
+  navigate(location.pathname, false);
 });
 
 postNavigation(document.querySelectorAll("a"));
