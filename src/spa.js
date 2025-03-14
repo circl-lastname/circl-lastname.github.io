@@ -1,15 +1,10 @@
 let navigating = false;
 let navigations = {};
-let transitionEnded = true;
-let transitionEndHandlers = [];
+let transitionPromise;
 
-function waitUntilTransitionEnd() {
+function wait(time) {
   return new Promise((resolve) => {
-    if (transitionEnded) {
-      resolve();
-    } else {
-      transitionEndHandlers.push(resolve);
-    }
+    setTimeout(resolve, time);
   });
 }
 
@@ -18,21 +13,8 @@ async function fetchContent(path) {
   return await request.text();
 }
 
-function postNavigation(elements) {
+function setTitle() {
   document.title = `circl - ${document.querySelector("#articleContainer circl-title").innerText}`;
-  scrollTo(0, 0);
-  articleContainer.classList.remove("loading");
-  
-  for (let element of elements) {
-    if (!element.target && element.origin == location.origin) {
-      element.addEventListener("click", (e) => {
-        if (e.button == 0) {
-          e.preventDefault();
-          navigate(element.pathname, true);
-        }
-      });
-    }
-  }
 }
 
 function navigate(path, willPushState) {
@@ -45,26 +27,17 @@ function navigate(path, willPushState) {
     
     if (!navigating) {
       navigating = true;
-      
       articleContainer.classList.add("loading");
-      
-      transitionEnded = false;
-      setTimeout(() => {
-        transitionEnded = true;
-        for (let handler of transitionEndHandlers) {
-          handler();
-        }
-        transitionEndHandlers = [];
-      }, 125);
+      transitionPromise = wait(125);
     }
     
-    fetchContent(path).then(async (r) => {
-      await waitUntilTransitionEnd();
-      
+    Promise.all([transitionPromise, fetchContent(path)]).then((r) => {
       if (location.pathname == path) {
         navigating = false;
-        articleContainer.innerHTML = r;
-        postNavigation(document.querySelectorAll("article a"));
+        articleContainer.innerHTML = r[1];
+        setTitle();
+        scrollTo(0, 0);
+        articleContainer.classList.remove("loading");
       } else {
         console.log(`Rejected stale navigation to ${path}`);
       }
@@ -76,8 +49,17 @@ function navigate(path, willPushState) {
   }
 }
 
+document.body.addEventListener("click", (e) => {
+  if (e.target.tagName == "A" &&
+      !e.target.target &&
+      e.target.origin == location.origin) {
+    e.preventDefault();
+    navigate(e.target.pathname, true);
+  }
+});
+
 addEventListener("popstate", (e) => {
   navigate(location.pathname, false);
 });
 
-postNavigation(document.querySelectorAll("a"));
+setTitle();
