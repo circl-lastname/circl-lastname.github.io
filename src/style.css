@@ -77,6 +77,8 @@ article {
 @media not ((max-width: 600px) or (max-height: 600px)) {
   nav {
     border-right: 2px solid #ffffff;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
     flex: 0 0 192px;
   }
   
@@ -86,6 +88,8 @@ article {
   }
   
   article {
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
     flex: 0 1 768px;
   }
 }
